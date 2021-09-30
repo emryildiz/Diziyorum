@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<Diziyorum.TBLBLOG>
+
+<div class="row pt-md-4">
+    <div class="col-md-12 gonderi">
+        @{
+            DiziYorumEntities db = new DiziYorumEntities();
+            foreach (TBLBLOG blog in Model)
+            {
+
+                var yorum = db.TBLYORUM.Where(x => x.YORUMBLOG == blog.BLOGID).Count();
+
+
+                <div class="blog-entry ftco-animate fadeInUp ftco-animated border border-primary kart">
+                    <div class="text-2 pl-md-4 gonderi">
+                        <img src="@blog.BLOGGORSEL" class="indexResim">
+                        <br />
+                        <br />
+                        <h3 ><a href="/Home/Gonderi?BLOGID=@blog.BLOGID" class="blogBaslik">@blog.BLOGBASLIK</a></h3>
+                        <div class="meta-wrap">
+                            <p class="meta">
+                                <span class="simgeler"><i class="far fa-calendar-alt" ></i> @blog.BLOGTARIH</span>
+                                <span><a href="/Home/Tur?TurID=@blog.TBLTUR.TURID" class="simgeler"><i class="far fa-folder-open"></i> @blog.TBLTUR.TURAD</a></span>
+                                <span><a href="/Home/Kategori?KategoriID=@blog.TBLKATEGORI.KATEGORIID" class="simgeler"><i class="far fa-folder"></i> @blog.TBLKATEGORI.KATEGORIAD</a></span>
+
+                                <span class="simgeler"><i class="far fa-comment-alt"></i> @yorum</span>
+                            </p>
+                        </div>
+                        <p class="" style="overflow: hidden; white-space:nowrap; text-overflow:ellipsis">@blog.BLOGICERIK</p>
+                        <p><a href="/Home/Gonderi?BLOGID=@blog.BLOGID" class="">Devamını Oku <span class="fas fa-angle-right"></span></a></p>
+                    </div>
+                </div>
+            }
+        }
+
+    </div>
+
+</div>

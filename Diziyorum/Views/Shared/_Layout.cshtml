@@ -1,0 +1,176 @@
+﻿
+@using Diziyorum.Models
+@{
+    DiziYorumEntities db = new DiziYorumEntities();
+    Layout l = new Layout();
+    l.kategori = db.TBLKATEGORI.ToList();
+    l.tur = db.TBLTUR.ToList();
+    var blog = db.TBLBLOG.Take(3).ToList();
+
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Diziyorum</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/css/A.bootstrap.min.css+template.css+fa.min.css+gfonts.min.css,Mcc.LI5f1xXhbm.css.pagespeed.cf.G00NPyYGCq.css" rel="stylesheet" media="screen">
+    <!-- Bootstrap CSS -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/template/css/style.css">
+    <link rel="stylesheet" href="~/template/css/style2.css">
+    <link rel="stylesheet" href="~/template/css/responsive.css">
+    <title>Diziyorum</title>
+</head>
+<body>
+    <div class="menu" style="z-index:2">
+
+
+        <nav>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+
+
+
+
+
+
+
+
+            </div>
+            <ul class="nav-links">
+
+                <li class="siteBaslik border active"><a href="/Home/Index" style="font-weight: bolder;  font-size:35px; color: #1eafed;">Diziyorum</a></li>
+                <li class="active underline-hover-effect"><a href="/Home/Index" style="font-weight: bolder;  font-size:25px;"><i class="fas fa-home"></i> Ana Sayfa</a></li>
+               
+                <li class="active underline-hover-effect"><a href="/Home/İletisim" style="font-weight: bolder; font-size:25px"><i class="fas fa-envelope"></i> Iletisim</a></li>
+
+                @if (User.IsInRole("2"))
+                {
+                    
+
+
+                    <li class="active underline-hover-effect"><a href="/Admin/Bloglar" style="font-weight: bolder;  font-size:25px;"><i class="fas fa-user-cog"></i>Admin Paneli</a></li>
+                }
+
+            <li class="girisButonu">
+                @{
+                    using (Html.BeginForm(new { @style = "#f8f9fa" }))
+                    {
+
+
+                        if (!Context.User.Identity.IsAuthenticated)
+                        {
+
+                            <a href="/Home/Login"><input id="Button1" type="button" value="GİRİŞ YAP" style="background-color:#42ba96;border-radius:2px" class="btn btn-outline-dark girisButon" /></a>
+                        }
+                        else
+                        {
+                            <a href="/Home/Exit"><input id="Button1" type="button" value="ÇIKIŞ YAP" style=" background-color:#CC7765;border-radius:2px" class="btn btn-dark girisButon" /></a>
+
+                        }
+
+                    }
+                }
+            </li>
+
+
+            </ul>
+        </nav>
+
+    </div>
+    
+
+    
+
+        
+    <div class="row" style="z-index:1;">
+        <div class="col-xl-8 px-md-5 border-left">
+
+
+            @RenderBody()
+        </div>
+
+
+
+        <div class="col-xl-4 sidebar ftco-animate bg-light pt-5 fadeInUp ftco-animated yanPanel">
+            <div class="sidebar-box pt-md-4">
+                
+
+
+
+
+
+
+                    <h3 class="sidebar-heading baslikKategori" style="font-size: 40px;">KATEGORILER</h3>
+                    @{
+                        foreach (TBLKATEGORI kategori in l.kategori)
+                        {
+
+                            <ul class="categories">
+                                <li><a href="~/Home/Kategori?KATEGORIID=@kategori.KATEGORIID" style="font-weight:600"> @kategori.KATEGORIAD </a></li>
+                                <u>                                                                                                             </u>
+                            </ul>
+                        }
+                    }
+
+
+
+
+                    <h3 class="sidebar-heading baslikKategori" style="font-size: 40px;">TÜRLER</h3>
+                    @{
+                        foreach (TBLTUR tur in l.tur)
+                        {
+
+                            <ul class="categories">
+                                <li style="padding-left:10px"><a href="~/Home/Tur?TURID=@tur.TURID" style="font-weight:600">@tur.TURAD <span></span></a></li>
+                                <u>                                                                                                             </u>
+                            </ul>
+                        }
+                    }
+
+
+
+
+
+
+
+                    <h3 class="sidebar-heading">Son Gönderiler</h3>
+                    @{
+                        
+                        var songonderiler = db.TBLBLOG.OrderByDescending(p => p.BLOGTARIH).Take(3).ToList();
+                        foreach (var x in songonderiler)
+                        {
+                            <div class="block-21 mb-4 d-flex">
+                                <img src="@x.BLOGGORSEL" style="width: 100px;height: 100px;border-radius: 50%;">
+                                <div class="text" style="margin-left: 20px;">
+                                    <h3 class="heading"><a href="/Home/Gonderi?BLOGID=@x.BLOGID"> @x.BLOGBASLIK</a></h3>
+                                    <div class="meta">
+                                        <div><a href="#"><span class="far fa-calendar-alt"></span> @x.BLOGTARIH</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+
+                </div>
+
+
+            </div>
+
+
+        
+            <script src="~/template/js/app.js"></script>
+            <script src="https://kit.fontawesome.com/c1c31b3481.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>ID</th>
+        <th>KULLANICI ADI</th>
+        <th>BLOG</th>
+        <th>YORUM</th>
+        <th>SİL</th>
+        
+
+    </tr>
+
+    @{
+        DiziYorumEntities db = new DiziYorumEntities();
+
+        var yorumlar = (from x in db.TBLYORUM
+                        select new
+                        {
+                            x.YORUMID,
+                            x.KULLANICIAD,
+                            x.TBLBLOG.BLOGBASLIK,
+                            x.YORUMICERIK
+                        }).ToList();
+        foreach (var yorum in yorumlar)
+        {
+
+
+
+        <tr>
+
+            <td>
+                @yorum.YORUMID
+            </td>
+
+
+
+
+
+            <td>@yorum.KULLANICIAD</td>
+
+            <td>@yorum.BLOGBASLIK</td>
+
+            <td>@yorum.YORUMICERIK</td>
+            <td><a href="/Admin/YorumSil?YORUMID=@yorum.YORUMID"><input id="Button1" type="button" value="SİL" class="btn btn-danger" /></a></td>
+
+
+        </tr>
+
+            }
+    }
+</table>

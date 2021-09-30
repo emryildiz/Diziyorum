@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<table class="table table-bordered" style="height:300px;font-size:20px;font-weight:bold">
+    <tr>
+        <td>
+            Toplam Blog Sayısı:<span>@ViewBag.Blog</span>
+        </td>
+        <td>
+            Toplam Yorum Sayısı:<span>@ViewBag.Yorum</span>
+        </td>
+        <td>
+            Film Sayısı:<span>@ViewBag.Film</span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Dizi Sayısı:<span>@ViewBag.Dizi</span>
+        </td>
+        <td>
+            Animasyon Sayısı:<span>@ViewBag.Animasyon</span>
+        </td>
+        <td>
+            En Fazla Yorumlu Blog:<span>@ViewBag.Most</span>
+        </td>
+    </tr>
+</table>

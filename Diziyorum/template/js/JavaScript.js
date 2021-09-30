@@ -1,0 +1,1 @@
+﻿document.getElementById("solMenu").className += "active";

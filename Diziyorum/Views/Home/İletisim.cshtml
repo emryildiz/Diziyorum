@@ -1,0 +1,68 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="row d-flex mb-5 contact-info" style="width:130%">
+    <div class="col-md-12 mb-4">
+        <h2 class="h3">İLETİŞİM BİLGİLERİ</h2>
+    </div>
+    <div class="w-100"></div>
+    <div class="col-lg-6 col-xl-3 d-flex mb-4">
+        <div class="info bg-light p-4">
+            <p><span>Adres:</span><br />Kemalpaşa Esentepe Kampüsü, Üniversite Cd., 54050 Serdivan/Sakarya</p>
+        </div>
+    </div>
+    <div class="col-lg-6 col-xl-3 d-flex mb-4">
+        <div class="info bg-light p-4" style="width:100%">
+            <p><span>Telefon:</span> <br /><a href="tel://1234567920">0555 333 22 11</a></p>
+        </div>
+    </div>
+    <div class="col-lg-6 col-xl-3 d-flex mb-4">
+        <div class="info bg-light p-4">
+            <p><span>E-Mail:</span> <a href="mailto:info@yoursite.com">emre.yildiz13@ogr.sakarya.edu.tr</a></p>
+        </div>
+    </div>
+
+</div>
+<div class="row block-9">
+    <div class="col-lg-6 d-flex">
+
+        @{
+            using (Html.BeginForm("İletisim", "Home", new { @class = "bg-light p-5 contact-form" }))
+            {
+
+
+
+                <div class="form-group">
+                    @Html.TextBox("isim", null, new { @class = "form-control", @placeholder = "İsim" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBox("mail", null, new { @class = "form-control", @placeholder = "Mail" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBox("konu", null, new { @class = "form-control", @placeholder = "Konu" })
+                </div>
+                <div class="form-group">
+                    @Html.TextArea("mesaj", htmlAttributes: new { @class = "form-control", @placeholder = "Mesajınız", @rows = 6, @cols = 50 })
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Gönder" class="btn btn-primary py-3 px-5">
+                </div>
+
+            }
+        }
+
+    </div>
+    <div class="col-lg-6 d-flex">
+        <div id="map" class="bg-light" style="position: relative; overflow: hidden;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.908767078872!2d30.33054231530602!3d40.74203297932858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ccadf2977958d7%3A0xc7996fa884f94c03!2sSakarya%20%C3%9Cniversitesi!5e0!3m2!1str!2str!4v1628032954899!5m2!1str!2str" width="360" height="550" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+        </div>
+    </div>
+</div>
+
+
+

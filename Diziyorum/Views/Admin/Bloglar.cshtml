@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model IEnumerable<Diziyorum.TBLBLOG>
+
+<a href="/Admin/BlogEkle" class="btn btn-primary">YENI BLOG</a>
+@{
+
+    foreach (var blog in Model)
+    {
+
+
+
+        <table class="table table-bordered" style="margin-top:2%;">
+
+            <tr>
+                <th style="width:220px">ID</th>
+                <th style="width:220px">BAŞLIK</th>
+                <th style="width:220px">TARIH</th>
+                <th style="width:220px">TÜR</th>
+                <th style="width:220px">KATEGORİ</th>
+                <th style="width:220px">SİL</th>
+                <th style="width:220px">DÜZENLE</th>
+
+            </tr>
+
+
+
+
+            <tr>
+                <td>@blog.BLOGID</td>
+                <td>@blog.BLOGBASLIK</td>
+                <td>@blog.BLOGTARIH</td>
+                <td>@blog.BLOGTUR</td>
+                <td>@blog.BLOGKATEGORI</td>
+                <td><a href="/Admin/BlogSil?BLOGID=@blog.BLOGID"><input id="Button1" type="button" value="SİL" class="btn btn-danger" /></a></td>
+                <td> <a href="/Admin/BlogGuncelle?BLOGID=@blog.BLOGID"><input id="Button2" type="button" value="GÜNCELLE" class="btn btn-warning" /></a></td>
+
+            </tr>
+
+
+        </table>
+    }
+}
+

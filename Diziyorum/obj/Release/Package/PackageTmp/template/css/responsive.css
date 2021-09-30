@@ -1,0 +1,290 @@
+﻿.indexResim {
+    width: 100%;
+    height: 300px;
+    min-width:150px;
+    border-radius:1%
+}
+.kart {
+    min-width: 500px;
+    border-radius: 2%;
+    position: relative;
+    margin: auto;
+    margin-bottom:5%;
+}
+
+.gonderi{
+    padding-top:5%;
+    padding-right:5%;
+}
+
+.gonderi2{
+    min-width:500px;
+    z-index:1;
+}
+.blogBaslik {
+    width: 70%;
+    color: #000000;
+    font-family:loraitalic
+}
+.girisButon{
+    
+    width:200px;
+}
+.logo {
+    padding-left: 4%;
+    margin-bottom: 5%;
+    width: 70px;
+    height: 70px;
+}
+
+
+
+
+.simgeler {
+    color: #bfbfbf
+}
+
+.icerik{
+    padding:4%;
+    border-radius:2%;
+
+
+
+}
+.icerikBaslik{
+    font-family:loraitalic;
+    font-size:40px;
+    text-align:center;
+    padding-top:5%;
+
+}
+
+.baslikKategori{
+    font-family:loraitalic;
+    font-size:40px;
+    font-style:italic;
+}
+.icerikResim {
+    border-radius: 2% ;
+    width:100%;
+    height:400px;
+}
+
+.yanPanel{
+
+    min-width:300px;
+    
+
+
+}
+
+.solMenu{
+    width:14%
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: poppins;
+}
+
+nav {
+    width: 100%;
+    background-color: white;
+    height: 100vh;
+
+}
+.menu {
+    width: 22%;
+    float: left;
+    
+}
+.girisButonu{
+    margin-top:24%;
+}
+
+.siteBaslik {
+    position: fixed;
+    top:1%;
+    left:auto;
+
+}
+
+.nav-links {
+    position:fixed;
+    padding-top: 100px;
+    padding-left: 50px;
+    width: 100%;
+    height: 50%;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: auto;
+    list-style-type: none;
+}
+
+    .nav-links li a {
+        color: rgba(0, 0, 0, 0.7);
+        text-decoration: none;
+        font-size: 18px;
+        padding: 8px 16px;
+        display: block;
+        font-weight: 500;
+        font-family: "Poppins", Arial, sans-serif;
+    }
+
+.active {
+    font-weight: 600;
+    color: #1eafed;
+}
+
+.underline-hover-effect {
+    padding-bottom: 0.25rem; /* defines the space between text and underline */
+    position: relative;
+}
+
+    .underline-hover-effect::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background-color: #1eafed;
+        transition: width 0.25s ease-out;
+    }
+
+    .underline-hover-effect:hover::before {
+        width: 15%;
+    }
+
+@media screen and (max-width: 1200px) {
+    .menu{
+        position:relative;
+        width:10%;
+    }
+    .girisButonu{
+            margin-top:5%;
+            margin-left:5%;
+    }
+
+    .line {
+        width: 30px;
+        height: 3px;
+        background-color: black;
+        margin: 5px;
+    }
+
+    nav {
+        position: relative;
+        background-color: white;
+    }
+
+    .hamburger {
+        position: absolute;
+        cursor: pointer;
+        left: 5%;
+        top: 5%;
+        transform: translate(-5%,-50%);
+        z-index: 2;
+    }
+
+    .nav-links li a {
+        color: rgba(0, 0, 0, 0.7);
+        text-decoration: none;
+        font-size: 50px;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 10%;
+        padding: 8px 16px;
+    }
+
+    .nav-links {
+        padding-top: 150px;
+        position: fixed;
+        background-color: white;
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        clip-path: circle(1px at -50% 0);
+        -webkit-clip-path: circle(1px at -50% 0);
+        transition: all 1s ease-out;
+    }
+    .siteBaslik {
+        width:84%;
+        height:86px;
+        left:auto;
+        margin-left:5%;
+
+    }
+
+        .nav-links.open {
+            clip-path: circle(2000px at -10% 0);
+            -webkit-clip-path: circle(2000px at -10% 0);
+            pointer-events: all;
+        }
+
+
+    .landing {
+        flex-direction: column;
+    }
+
+    .underline-hover-effect {
+        padding-bottom: 0.25rem; /* defines the space between text and underline */
+        position: relative;
+    }
+
+        
+        .underline-hover-effect:hover::before {
+            width: 94%;
+        }
+
+}
+
+
+
+
+
+@media screen and (max-width:1200px){
+   
+    .yanPanel{
+        margin-left:5%;
+        width:100%;
+        margin-right:8%;
+    }
+
+}
+
+@media screen and (max-width:767px) {
+
+    .yanPanel {
+        margin-left: 3%;
+        margin-right:5%;
+        min-width:500px;
+    }
+}
+
+
+
+
+
+ @font-face {
+        font-family: 'loraitalic';
+        src: url('/fonts/lora-italic-variablefont_wght-webfont.woff2') format('woff2'), url('/fonts/lora-italic-variablefont_wght-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+@font-face {
+        font-family: 'poppins';
+        src: url('/fonts/poppins-regular-webfont.woff2') format('woff2'), url('/fonts/poppins-regular-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+
+
+
